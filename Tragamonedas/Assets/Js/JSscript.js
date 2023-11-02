@@ -25,11 +25,12 @@ var valorapuesta = 0;
 //codigo
 iniciar.onclick=function(){
 	
-	while(nombre == ""){ //falta validar si pone un numero
+	while(nombre == "" || !isNaN(nombre)){ //falta validar si pone un numero
 	nombre = prompt("Ingrese su nombre");
 	}
 	
-	while(saldo < 100){
+	
+	while(saldo < 100||(isNaN(saldo))){
 		saldo = parseInt(prompt("Ingrese cuanto saldo desea (minimo de 100)"));
 	}
 
@@ -50,18 +51,22 @@ iniciar.onclick=function(){
 
 imgspin.onclick=function(){
 	imgspin.setAttribute("src","Assets/Imagenes/Wait.png");
-	for (var i = 0; i <= 3; i++){
-	(function(i){
+	
 	intervalo = setInterval(function(){
-	imagenslotss[i].setAttribute("src", imagenes[random()]);
+	imagenslotss[0].setAttribute("src", imagenes[random()]);
+	imagenslotss[1].setAttribute("src", imagenes[random()]);
+	imagenslotss[2].setAttribute("src", imagenes[random()]);
 	},200)
 	intervalofrenado = setTimeout(function(){
-	clearInterval(intervalo);
-	imgspin.setAttribute("src","Assets/Imagenes/Spin.png");
-	},2000);
-}(i))
+		clearInterval(intervalo);
+		imgspin.setAttribute("src","Assets/Imagenes/Spin.png");
+		
+		},2000);
+	
 }
-}
+
+
+
 
 //tocar valores
 for (var i = 0; i < valores.length ; i++){
