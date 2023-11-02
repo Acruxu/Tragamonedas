@@ -56,7 +56,7 @@ img{
 #spin img{
 	height: 70%;
 	width: auto;
-	
+	display: none;
 }
 
 #info{
@@ -82,10 +82,11 @@ img{
 	background: yellow;
 	border-radius: 1em;
 	display: flex;
-	height: 60%;
+	height: 7em;
 	width: 20%;
 	margin-left: 2em;
 	margin-right: 11em;
+	margin-bottom: 2em;
 }
 
 #cuadradoapu button{
@@ -98,4 +99,8 @@ img{
 	display: flex;
 	flex-wrap: wrap;
 	margin-left:1.8em ;
+}
+
+.valores{
+	background-color: grey;
 }

@@ -8,7 +8,6 @@ var imgspin = document.getElementById("spinner");
 //intervalos
 var intervalo = "";
 var intervalofrenado = "";
-var contador = 0; 
 
 //Seccion data usuario
 var nombre = "";//aca se guardaria el nombre
@@ -20,12 +19,14 @@ var contenedorsaldo = document.getElementById("saldo");
 //Timba
 var imagenslotss = document.getElementsByClassName("imagenslot");
 var valores = document.getElementsByClassName("valores");
-var valorapuesta = 0;
+var valorapuesta = "";
+
+
 
 //codigo
 iniciar.onclick=function(){
 	
-	while(nombre == "" || !isNaN(nombre)){ //falta validar si pone un numero
+	while(nombre == "" || !isNaN(nombre)){ 
 	nombre = prompt("Ingrese su nombre");
 	}
 	
@@ -34,24 +35,18 @@ iniciar.onclick=function(){
 		saldo = parseInt(prompt("Ingrese cuanto saldo desea (minimo de 100)"));
 	}
 
-	if (nombre != "" && saldo != NaN){ //falta ver como validar el numero
 	iniciar.style.display = "none";
 	interjuego.style.display = "flex";
 	contenedornombre.innerHTML = (nombre);
 	contenedorsaldo.innerHTML = (saldo);
 	}
-	else{
-		alert("ñeñe");
-	}
 	
-}
 
 
-
-
-imgspin.onclick=function(){
+ imgspin.onclick=function(){
 	imgspin.setAttribute("src","Assets/Imagenes/Wait.png");
-	
+	saldo= saldo-valorapuesta;
+	contenedorsaldo.innerHTML = (saldo);
 	intervalo = setInterval(function(){
 	imagenslotss[0].setAttribute("src", imagenes[random()]);
 	imagenslotss[1].setAttribute("src", imagenes[random()]);
@@ -60,7 +55,7 @@ imgspin.onclick=function(){
 	intervalofrenado = setTimeout(function(){
 		clearInterval(intervalo);
 		imgspin.setAttribute("src","Assets/Imagenes/Spin.png");
-		
+
 		},2000);
 	
 }
@@ -72,7 +67,15 @@ imgspin.onclick=function(){
 for (var i = 0; i < valores.length ; i++){
 (function(i){
 	valores[i].onclick = function(){
-	console.log(i);
+		valores[0].style.background="grey";
+		valores[1].style.background="grey";
+		valores[2].style.background="grey";
+		valores[3].style.background="grey";
+
+	valores[i].style.background="blue";
+	valorapuesta = 	parseInt(valores[i].textContent);
+	console.log(valorapuesta);
+	imgspin.style.display = "block";
 }
 }(i))	
 }
@@ -86,7 +89,4 @@ for (var i = 0; i < valores.length ; i++){
 //funciones
 function random(){
 	return Math.round(Math.random() * (imagenes.length - 1));
-}
-function frenado(interval){
-	return clearInterval();
 }
