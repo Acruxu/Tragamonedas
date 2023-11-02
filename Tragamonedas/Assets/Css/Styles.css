@@ -1,0 +1,101 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+}
+
+body{
+	background: #1aba32;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+
+#seccionintro{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	height: 46.2em;
+}
+
+#botonintro{
+	border-radius: 0.5em;
+	background:#6e6e6e;
+	padding: 1em;
+}
+
+#juego{
+	background: grey;
+	border-style: solid;
+	border-color: black;
+	width: 65%;
+	height: 70%;
+	display: none;
+	flex-direction: row;
+	flex-wrap: wrap; 
+}
+
+.slots{
+	border-color: black;
+	border-style: solid;
+	width: 31%;
+	height: 50%;
+	margin-left: 0.8em;
+	margin-top: 0.6em;
+}
+
+#spin{
+	display: flex;
+	width: 100%;
+	height: auto;
+}
+
+#spin img{
+	height: 70%;
+	width: auto;
+	
+}
+
+#info{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-top:0.7em;
+}
+
+.data{
+	background: #474747;
+	border-radius: 0.5em;
+	color: orange;
+	display: flex;
+	align-items: center;
+	padding: 0.4em;
+}
+
+#cuadradoapu{
+	background: yellow;
+	border-radius: 1em;
+	display: flex;
+	height: 60%;
+	width: 20%;
+	margin-left: 2em;
+	margin-right: 11em;
+}
+
+#cuadradoapu button{
+	width: 3em;
+	height: 2em;
+	margin: 0.5em;
+}
+
+#cajavalores{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left:1.8em ;
+}
