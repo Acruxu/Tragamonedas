@@ -5,8 +5,9 @@
 }
 
 body{
-	background: #1aba32;
+	background-image: url("https://static.vecteezy.com/system/resources/thumbnails/000/533/848/small/Brickwall004.jpg");
 }
+
 img{
 	width: 100%;
 	height: 100%;
@@ -23,8 +24,10 @@ img{
 
 #botonintro{
 	border-radius: 0.5em;
-	background:#6e6e6e;
 	padding: 1em;
+	background: linear-gradient(#5188c2,#ab52bd);
+	cursor: pointer;
+	color: #ffff;
 }
 
 #juego{
@@ -64,14 +67,15 @@ img{
 	height: auto;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
-	padding-top:0.7em;
+	background: black;
+	opacity: 50%;
 }
 
 .data{
 	background: #474747;
-	border-radius: 0.5em;
 	color: orange;
 	display: flex;
 	align-items: center;
@@ -79,14 +83,12 @@ img{
 }
 
 #cuadradoapu{
-	background: yellow;
+	background:yellow;
 	border-radius: 1em;
 	display: flex;
 	height: 7em;
 	width: 20%;
-	margin-left: 2em;
-	margin-right: 11em;
-	margin-bottom: 2em;
+	align-items: center;
 }
 
 #cuadradoapu button{
@@ -98,7 +100,7 @@ img{
 #cajavalores{
 	display: flex;
 	flex-wrap: wrap;
-	margin-left:1.8em ;
+	margin-left:2.8em ;
 }
 
 .valores{
