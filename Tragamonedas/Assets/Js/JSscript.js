@@ -51,7 +51,7 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 		valores[2].style.background="grey";
 		valores[3].style.background="grey";
 		valores[i].style.background="blue"; //pero al tocar uno el usuario se cambia solo ese
-		valorapuesta = 	parseInt(valores[i].textContent); //aca tamos agarrando y haciendo numero el valor tocado
+		valorapuesta = 	parseFloat(valores[i].textContent); //aca tamos agarrando y haciendo numero el valor tocado
 		console.log(valorapuesta); //verificamos
 		imgspin.style.display = "block"; //que se muestre el boton, despues de ingresar algun valor
 	}
@@ -60,6 +60,10 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 
 
  imgspin.onclick=function(){ //cuando se toque el spin 
+	if (saldo<valorapuesta){
+		alert("Se acabo tu saldo");
+	}
+	else{
 	imgspin.setAttribute("src","Assets/Imagenes/Wait.png"); //se cambia al spin wait
 	saldo= saldo-valorapuesta; // el saldo tiene que restarse con el valor ingresado
 	contenedorsaldo.innerHTML = (saldo); //se cambia el saldo en pantalla
@@ -69,22 +73,16 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 	imagenslotss[2].setAttribute("src", imagenes[random()]);
 	},200) // se cambian durante 2 segundos
 	intervalofrenado = setTimeout(function(){ //este intervalo se crea para que frenen despues de 20 segundos
-		clearInterval(intervalo);
-		imgspin.setAttribute("src","Assets/Imagenes/Spin.png");
+	clearInterval(intervalo);
+	imgspin.setAttribute("src","Assets/Imagenes/Spin.png");
+	if (imagenslotss[0].src === imagenslotss[1].src && imagenslotss[1].src === imagenslotss[2].src){//detecta si las imagenes son iguales y triplica lo apostado
+	saldo = saldo + (valorapuesta*3);
+	contenedorsaldo.innerHTML = (saldo);
+	}	
 		},2000);
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
+}
 
 //funciones
 function random(){
