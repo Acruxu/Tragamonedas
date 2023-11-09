@@ -24,6 +24,7 @@ var valorapuesta = ""; //aca guardariamos el valor del boton
 var perdiste = document.getElementById("perdiste");
 var botonreinicio = document.getElementsByClassName("reintentar");
 var ganaste = document.getElementById("ganaste");
+var imgboleano = true;
 
 //codigo
 iniciar.onclick=function(){	//cuando se toque el boton iniciar
@@ -63,11 +64,13 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 
 
  imgspin.onclick=function(){ //cuando se toque el spin 
+ 	if (imgboleano === true){
 	if (saldo<valorapuesta){
 		perdiste.style.display="flex";
 		interjuego.style.display="none";
 	}
 	else{
+		imgboleano = false;
 	imgspin.setAttribute("src","Assets/Imagenes/Wait.png"); //se cambia al spin wait
 	saldo = saldo-valorapuesta; // el saldo tiene que restarse con el valor ingresado
 	contenedorsaldo.innerHTML = (saldo); //se cambia el saldo en pantalla
@@ -79,6 +82,7 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 	
 	intervalofrenado = setTimeout(function(){ //este intervalo se crea para que frenen despues de 20 segundos
 	clearInterval(intervalo);
+	imgboleano = true;
 	imgspin.setAttribute("src","Assets/Imagenes/Spin.png");
 	if (imagenslotss[0].src === imagenslotss[1].src && imagenslotss[1].src === imagenslotss[2].src){//detecta si las imagenes son iguales y triplica lo apostado
 	saldo = saldo + (valorapuesta*3);
@@ -90,14 +94,11 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 		ganaste.style.display="flex";
 		
 	}
-		},2000); 
+	},2000); 
 
-	
-
-}
-}
-
-
+	}
+	}
+} 
 //reiniciarjuego
 	 
 	 for(k = 0; k < botonreinicio.length; k++ ){
