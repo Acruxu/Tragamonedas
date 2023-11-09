@@ -109,3 +109,41 @@ img{
 .valores{
 	background-color: grey;
 }
+
+
+#finaljuego{
+	justify-content: center;
+	align-items: center;
+	width: 95%;
+	height: auto;
+}
+
+#perdiste{
+	display: none;
+	background: black;
+	width: 25%;
+	height: 25%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: #ffff;
+	border-radius: 0.5em;
+
+}
+.claseboton {
+	margin-top: 1.5em;
+	border-radius: 0.5em;
+	padding: 1em;
+	background: linear-gradient(#5188c2,#ab52bd);
+	cursor: pointer;
+	color: #ffff;
+}
+
+#ganaste{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 40%;
+	height: 40%;
+}

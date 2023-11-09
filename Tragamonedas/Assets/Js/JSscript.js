@@ -1,6 +1,6 @@
 
 var imagenes = ["Assets/Imagenes/Zapallo.png","Assets/Imagenes/Papa.png","Assets/Imagenes/Enano.png","Assets/Imagenes/Doc.png", "Assets/Imagenes/Cherry.png","Assets/Imagenes/Diamante.png"];
-
+//var imagenes = ["Assets/Imagenes/Zapallo.png"];
 var iniciar = document.getElementById("botonintro"); //Guardamos el boton de inicio
 var interjuego = document.getElementById("juego");//guardamos el div que contiene todo el juego
 var imgspin = document.getElementById("spinner");// guardamos el boton spin
@@ -14,14 +14,16 @@ var nombre = "";//aca se guardaria el nombre
 var saldo = 0;//saldo
 var contenedornombre = document.getElementById("usuario");//guardamos el div en el que iria el nombre del usuario
 var contenedorsaldo = document.getElementById("saldo");//guardamos el div en el que iria el saldo del usuario
+var saldoinicial = 0;
 //-------------------
 
 //Timba
 var imagenslotss = document.getElementsByClassName("imagenslot"); //guardamos los div en el que irian las imagenes del array
 var valores = document.getElementsByClassName("valores"); //guardamos el array de los botones valores
 var valorapuesta = ""; //aca guardariamos el valor del boton
-
-
+var perdiste = document.getElementById("perdiste");
+var botonreinicio = document.getElementsByClassName("reintentar");
+var ganaste = document.getElementById("ganaste");
 
 //codigo
 iniciar.onclick=function(){	//cuando se toque el boton iniciar
@@ -31,8 +33,9 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 	}
 	
 	
-	while(saldo < 100||(isNaN(saldo))){ //si el saldo es menor a 100 o es nan el saldo se repite igual que arriba.
+	while(saldo < 100|| isNaN(saldo)){ //si el saldo es menor a 100 o es nan el saldo se repite igual que arriba.
 		saldo = parseInt(prompt("Ingrese cuanto saldo desea (minimo de 100)"));
+		saldoinicial = saldo;
 	}
 
 	iniciar.style.display = "none"; //desaparece el boton de comenzar
@@ -51,7 +54,7 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 		valores[2].style.background="grey";
 		valores[3].style.background="grey";
 		valores[i].style.background="blue"; //pero al tocar uno el usuario se cambia solo ese
-		valorapuesta = 	parseFloat(valores[i].textContent); //aca tamos agarrando y haciendo numero el valor tocado
+		valorapuesta = parseFloat(valores[i].textContent); //aca tamos agarrando y haciendo numero el valor tocado
 		console.log(valorapuesta); //verificamos
 		imgspin.style.display = "block"; //que se muestre el boton, despues de ingresar algun valor
 	}
@@ -61,17 +64,19 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 
  imgspin.onclick=function(){ //cuando se toque el spin 
 	if (saldo<valorapuesta){
-		alert("Se acabo tu saldo");
+		perdiste.style.display="flex";
+		interjuego.style.display="none";
 	}
 	else{
 	imgspin.setAttribute("src","Assets/Imagenes/Wait.png"); //se cambia al spin wait
-	saldo= saldo-valorapuesta; // el saldo tiene que restarse con el valor ingresado
+	saldo = saldo-valorapuesta; // el saldo tiene que restarse con el valor ingresado
 	contenedorsaldo.innerHTML = (saldo); //se cambia el saldo en pantalla
 	intervalo = setInterval(function(){ //y se hace un intervalo que giran las imagenes.
 	imagenslotss[0].setAttribute("src", imagenes[random()]);
 	imagenslotss[1].setAttribute("src", imagenes[random()]);
 	imagenslotss[2].setAttribute("src", imagenes[random()]);
-	},200) // se cambian durante 2 segundos
+	},200) 
+	
 	intervalofrenado = setTimeout(function(){ //este intervalo se crea para que frenen despues de 20 segundos
 	clearInterval(intervalo);
 	imgspin.setAttribute("src","Assets/Imagenes/Spin.png");
@@ -79,10 +84,30 @@ iniciar.onclick=function(){	//cuando se toque el boton iniciar
 	saldo = saldo + (valorapuesta*3);
 	contenedorsaldo.innerHTML = (saldo);
 	}	
-		},2000);
+	
+	if ((saldoinicial*2) <= saldo){
+		interjuego.style.display="none"
+		ganaste.style.display="flex";
+		
+	}
+		},2000); 
+
+	
 
 }
 }
+
+
+//reiniciarjuego
+	 
+	 for(k = 0; k < botonreinicio.length; k++ ){
+	 (function(k){	
+	 	botonreinicio[k].onclick=function(){
+	 	window.location.reload();
+	 }
+	}(k))
+}
+
 
 //funciones
 function random(){
