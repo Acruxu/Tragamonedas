@@ -14,6 +14,7 @@ var saldo = 0;																												  //saldo
 var contenedornombre = document.getElementById("usuario"); 								  //guardamos el div en el que iria el nombre del usuario
 var contenedorsaldo = document.getElementById("saldo"); 									  //guardamos el div en el que iria el saldo del usuario
 var saldoinicial = 0;
+var instruccion = document.getElementById("instrucciones");
 //Timba
 var imagenslotss = document.getElementsByClassName("imagenslot");				    //guardamos los div en el que irian las imagenes del array
 var valores = document.getElementsByClassName("valores"); 									//guardamos el array de los botones valores
@@ -35,6 +36,7 @@ iniciar.onclick = function () { 																					   //cuando se toque el bot
 	interjuego.style.display = "flex"; 																			   //se muestra en display el juego (flex para despues poder modificar el css)
 	contenedornombre.innerHTML = (nombre); 														   //se muestra en pantalla el nombre
 	contenedorsaldo.innerHTML = (saldo);																 //se muestra en pantalla el dinero 
+	instruccion.style.display = "none";
 }
 //tocar valores
 for (var i = 0; i < valores.length; i++) {																	     //for que sirve para recorrer el array de los botones valores
