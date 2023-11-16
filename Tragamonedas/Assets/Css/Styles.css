@@ -31,7 +31,7 @@ img{
 }
 
 #juego{
-	background: grey;
+	background: #02E170;
 	border-style: solid;
 	border-color: black;
 	width: 65%;
@@ -54,9 +54,12 @@ img{
 	display: flex;
 	width: 100%;
 	height: auto;
+	background:  #327A56;
+
 }
 
 #spin img{
+	margin-top: 1em;
 	height: 70%;
 	width: auto;
 	display: none;
@@ -70,8 +73,7 @@ img{
 	align-items: center;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
-	background: black;
-	opacity: 50%;
+	background: #327A56;
 }
 
 .data{
@@ -83,15 +85,26 @@ img{
 	border-radius: 0.7em;
 }
 
+#objetivo{
+	background: #474747;
+	color: #3BE101;
+	display: flex;
+	align-items: center;
+	padding: 0.4em;
+	border-radius: 0.7em;
+}
+
 #cuadradoapu{
-	background:#FCEC2E;
+	background:#AD3C32;
+	border-style: double;
 	border-radius: 1em;
 	display: flex;
 	height: 7em;
 	width: 20%;
 	align-items: center;
-	margin-right: 14em;
+	margin-right: 12em;
 	margin-left: 2.5em;
+	margin-top: 1em;
 }
 
 #cuadradoapu button{
@@ -103,11 +116,11 @@ img{
 #cajavalores{
 	display: flex;
 	flex-wrap: wrap;
-	margin-left:2.8em ;
+	margin-left:2.3em ;
 }
 
 .valores{
-	background-color: grey;
+	background-color:#fff;
 }
 
 
@@ -120,7 +133,7 @@ img{
 
 #perdiste{
 	display: none;
-	background: black;
+	background: #AE2826;
 	width: 25%;
 	height: 25%;
 	align-items: center;
@@ -128,8 +141,17 @@ img{
 	flex-direction: column;
 	color: #ffff;
 	border-radius: 0.5em;
+	border-style: inherit;
+	border-color: black;
+	border-width: 2px;
 
 }
+
+
+#perdiste p{
+font-size: 2.5em;
+}
+
 .claseboton {
 	margin-top: 1.5em;
 	border-radius: 0.5em;
