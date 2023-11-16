@@ -29,7 +29,7 @@ iniciar.onclick = function () { 																					   //cuando se toque el bot
 	while (nombre == "" || !isNaN(nombre)) {
 		nombre = prompt("Ingrese su nombre"); 															//se pregunta el nombre y si esta vacio o es un numero se vuelve a preguntar hasta que se cumpla la condición
 	}
-	while (saldo < 10 || isNaN(saldo)) { 																		//si el saldo es menor a 100 o es nan el saldo se repite igual que arriba.
+	while (saldo < 100 || isNaN(saldo)) { 																		//si el saldo es menor a 100 o es nan el saldo se repite igual que arriba.
 		saldo = parseInt(prompt("Ingrese cuanto saldo desea (minimo de 100)"));
 		saldoinicial = saldo;
 	}
