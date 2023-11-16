@@ -1,6 +1,6 @@
 
-//var imagenes = ["Assets/Imagenes/Zapallo.png", "Assets/Imagenes/Papa.png", "Assets/Imagenes/Enano.png", "Assets/Imagenes/Doc.png", "Assets/Imagenes/Cherry.png", "Assets/Imagenes/Diamante.png"];
-var imagenes = ["Assets/Imagenes/Zapallo.png"];
+var imagenes = ["Assets/Imagenes/Zapallo.png", "Assets/Imagenes/Papa.png", "Assets/Imagenes/Enano.png", "Assets/Imagenes/Doc.png", "Assets/Imagenes/Cherry.png", "Assets/Imagenes/Diamante.png"];
+//var imagenes = ["Assets/Imagenes/Zapallo.png"];
 var iniciar = document.getElementById("botonintro");                                                //Guardamos el boton de inicio
 var interjuego = document.getElementById("juego");												   //guardamos el div que contiene todo el juego
 var imgspin = document.getElementById("spinner"); 												   // guardamos el boton spin
@@ -58,8 +58,13 @@ for (var i = 0; i < valores.length; i++) {																	     //for que sirve 
 imgspin.onclick = function () { 																					//cuando se toque el spin 
 	if (imgboleano === true) {
 		if (saldo < valorapuesta) {
+			if (saldo < 0.5) {
 			perdiste.style.display = "flex";
 			interjuego.style.display = "none";
+		}
+		else{
+			alert("fondos insuficientes");
+		}
 		} else {
 			imgboleano = false;
 			imgspin.setAttribute("src", "Assets/Imagenes/Wait.png"); 							  //se cambia al spin wait
